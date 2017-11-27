@@ -1,8 +1,6 @@
-window.onload = function(){
-	document.getElementById("myBtn").addEventListener("click", function(){
-	var displayBox = document.getElementById("translated");
-	displayBox.innerHTML = "Cax";
-	var original = document.getElementById("original").value
+
+function translate_single_word(s){
+	var original = s;
 	var translated = "";
 	for (var i = 0; i<original.length;i++){
 		if (i!=original.length-1){
@@ -17,10 +15,16 @@ window.onload = function(){
 				case "Ch":
 					res = "C";
 					break;
+				case "CH":
+					res = "C";
+					break;
 				case "tr":
 					res = "c";
 					break;
 				case "Tr":
+					res = "C";
+					break;
+				case "TR":
 					res = "C";
 					break;
 				case "gh":
@@ -29,8 +33,14 @@ window.onload = function(){
 				case "Gh":
 					res = "G";
 					break;
+				case "GH":
+					res = "G";
+					break;
 				case "ph":
 					res = "f";
+					break;
+				case "PH":
+					res = "F";
 					break;
 				case "Ph":
 					res = "F";
@@ -41,7 +51,16 @@ window.onload = function(){
 				case "Nh":
 					res = "N'";
 					break;
+				case "NH":
+					res = "N'";
+					break;
 				case "Ng":
+					res = "Q";
+					if (i+2 < original.length && original[i+2] === 'h'){
+						i++;
+					}
+					break;
+				case "NG":
 					res = "Q";
 					if (i+2 < original.length && original[i+2] === 'h'){
 						i++;
@@ -59,16 +78,25 @@ window.onload = function(){
 				case "Kh":
 					res = "X";
 					break;
+				case "KH":
+					res = "X";
+					break;
 				case "th":
 					res = "w";
 					break;
 				case "Th":
 					res = "W";
 					break;
+				case "TH":
+					res = "W";
+					break;
 				case "gi":
 					res = "z";
 					break;
 				case "Gi":
+					res = "Z";
+					break;
+				case "GI":
 					res = "Z";
 					break;
 			}
@@ -116,6 +144,13 @@ window.onload = function(){
 		}
 	}
 	if (translated === "") translated = "Văn bản đượk zịc sẽ đượk hiện ở đây";
-	displayBox.innerHTML = "<i>"+translated+"</i>";
+	return translated;
+}
+
+window.onload = function(){
+	document.getElementById("myBtn").addEventListener("click", function(){
+	var displayBox = document.getElementById("translated");
+	var original = document.getElementById("original").value;
+	displayBox.innerHTML = "<i>"+translate_single_word(original)+"</i>";
 });
 }
