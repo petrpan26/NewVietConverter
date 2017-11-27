@@ -1,4 +1,5 @@
-document.getElementById("myBtn").addEventListener("click", function(){
+window.onload = function(){
+	document.getElementById("myBtn").addEventListener("click", function(){
 	var original = document.getElementById("original").value
 	var translated = "";
 	for (var i = 0; i<original.length;i++){
@@ -102,3 +103,4 @@ document.getElementById("myBtn").addEventListener("click", function(){
 	var displayBox = document.getElementById("translated");
 	displayBox.innerHTML = translated;
 });
+}
