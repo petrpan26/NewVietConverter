@@ -104,6 +104,12 @@ window.onload = function(){
 			case 'D':
 				translated+='Z';
 				break;
+			case 'đ':
+				translated+='d';
+				break;
+			case 'Đ':
+				translated+='D';
+				break;
 			default:
 				translated+=original[i];
 				break;
