@@ -204,3 +204,19 @@ function checkWord(s){
 	s = s.toLowerCase();
 	return (s in vietDict);
 }
+
+function translateString(original){
+	var originalTokenizer = original.split(" ");
+	var res = "";
+	for (var i = 0;i<originalTokenizer.length;i++){
+		if (checkWord(originalTokenizer[i])){
+			res += translateSingleWord(originalTokenizer[i]);
+			res += " ";
+		}
+		else{
+			res += originalTokenizer[i];
+			res += " ";
+		}
+	}
+	if (res!="") res = res.slice(0,-1);
+}
