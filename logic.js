@@ -12,6 +12,9 @@ function translate_single_word(s){
 				case "ch":
 					res = "c";
 					break;
+				case "cH":
+					res = "c";
+					break;
 				case "Ch":
 					res = "C";
 					break;
@@ -19,6 +22,9 @@ function translate_single_word(s){
 					res = "C";
 					break;
 				case "tr":
+					res = "c";
+					break;
+				case "tR":
 					res = "c";
 					break;
 				case "Tr":
@@ -30,6 +36,9 @@ function translate_single_word(s){
 				case "gh":
 					res = "g";
 					break;
+				case "gH":
+					res = "g";
+					break;
 				case "Gh":
 					res = "G";
 					break;
@@ -37,6 +46,9 @@ function translate_single_word(s){
 					res = "G";
 					break;
 				case "ph":
+					res = "f";
+					break;
+				case "pH":
 					res = "f";
 					break;
 				case "PH":
@@ -47,6 +59,8 @@ function translate_single_word(s){
 					break;
 				case "nh":
 					res = "n'";
+				case "nH":
+					res = "n'";
 					break;
 				case "Nh":
 					res = "N'";
@@ -55,6 +69,12 @@ function translate_single_word(s){
 					res = "N'";
 					break;
 				case "Ng":
+					res = "Q";
+					if (i+2 < original.length && original[i+2] === 'h'){
+						i++;
+					}
+					break;
+				case "nG":
 					res = "Q";
 					if (i+2 < original.length && original[i+2] === 'h'){
 						i++;
@@ -75,6 +95,9 @@ function translate_single_word(s){
 				case "kh":
 					res = "x";
 					break;
+				case "kH":
+					res = "x";
+					break;
 				case "Kh":
 					res = "X";
 					break;
@@ -82,6 +105,9 @@ function translate_single_word(s){
 					res = "X";
 					break;
 				case "th":
+					res = "w";
+					break;
+				case "tH":
 					res = "w";
 					break;
 				case "Th":
@@ -98,6 +124,9 @@ function translate_single_word(s){
 					break;
 				case "GI":
 					res = "Z";
+					break;
+				case "gI":
+					res = "z";
 					break;
 			}
 			if (res!="") 
