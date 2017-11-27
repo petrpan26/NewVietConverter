@@ -1,5 +1,7 @@
 window.onload = function(){
 	document.getElementById("myBtn").addEventListener("click", function(){
+	var displayBox = document.getElementById("translated");
+	displayBox.innerHTML = "Cax";
 	var original = document.getElementById("original").value
 	var translated = "";
 	for (var i = 0; i<original.length;i++){
@@ -41,11 +43,15 @@ window.onload = function(){
 					break;
 				case "Ng":
 					res = "Q";
-					if (i+2 < original.length and original[i+2] == 'h') i++;
+					if (i+2 < original.length && original[i+2] === 'h'){
+						i++;
+					}
 					break;
 				case "ng":
-					res = "Q";
-					if (i+2 < original.length and original[i+2] == 'h') i++;
+					res = "q";
+					if (i+2 < original.length && original[i+2] === 'h'){
+						i++;
+					}
 					break;
 				case "kh":
 					res = "x";
@@ -98,9 +104,12 @@ window.onload = function(){
 			case 'D':
 				translated+='Z';
 				break;
+			default:
+				translated+=original[i];
+				break;
 		}
 	}
-	var displayBox = document.getElementById("translated");
-	displayBox.innerHTML = translated;
+	if (translated === "") translated = "Văn bản đượk zịc sẽ đượk hiện ở đây";
+	displayBox.innerHTML = "<i>"+translated+"</i>";
 });
 }
