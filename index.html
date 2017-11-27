@@ -4,15 +4,47 @@
 	<title>New Viet Converter</title>
 	<script src="logic.js"></script>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<style>
+		 form {
+   			width: 300px;
+		   height: 300px;
+		 }
+		 textarea {
+		 	margin: 1px;
+  			padding: 1px;
+			width: 500px;
+			height: 300px;
+			resize: none;
+			font-size: 18px;
+		 }
+		 text {
+		 	display: inline-block;
+		 	word-wrap: break-word;
+		 	margin: 1px;
+  			padding: 1px;
+			max-width: 300px;
+			resize: none;
+			font-size: 18px;	
+		 }
+	</style>
 </head>
 <body>
 	<h1>Kôq kụ zịc tiếq việt</h1>
 	<form>
-  		N'ập văn bản gốk::<br>
-  		<input type="text" name="source" id="original"><br>
-	</form>
-	Văn bản đượk zịc<br>
-	<text id="translated" style=""><i>Văn bản đượk zịc sẽ đượk hiện ở đây</i></text><br>
-	<button id="myBtn">Submit</button>
+  		N'ập văn bản gốk:<br>
+  		<textarea type="text" name="source" id="original"></textarea>
+  		<br>
+	</form> 
+
+	<br><br>
+
+	<b style="font-size: 18px">Văn bản đượk zịc</b><br>
+
+	<text id="translated">
+		<i>Văn bản đượk zịc sẽ đượk hiện ở đây</i>
+	</text> <br>
+	<button id="myBtn">
+		Submit
+	</button>
 </body>
 </html>
