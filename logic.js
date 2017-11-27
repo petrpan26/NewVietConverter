@@ -167,6 +167,12 @@ function translate_single_word(s){
 			case 'Đ':
 				translated+='D';
 				break;
+			case 'x':
+				translated+='s';
+				break;
+			case 'X':
+				translated+='S';
+				break;
 			default:
 				translated+=original[i];
 				break;
