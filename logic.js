@@ -1,6 +1,4 @@
-window.onload = function(){
-	vietDict = getMap();
-	document.getElementById("myBtn").addEventListener("click", function(){
+function process(){
 	var displayBox = document.getElementById("translated");
 	var original = document.getElementById("original").value;
 	var originalTokenizer = original.split(" ");
@@ -18,5 +16,14 @@ window.onload = function(){
 	if (res!="") res = res.slice(0,-1);
 	if (res==="") res = "Hãy viết tiếq Việt dúq dể zữ gìn sự coq sáq kủa tiếq Việt!!!";
 	displayBox.innerHTML = "<i>"+res+"</i>";
-});
 }
+window.onload = function(){
+	vietDict = getMap();
+	document.getElementById("myBtn").addEventListener("click", process);
+	document.getElementById("original").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+    	process();
+    }
+});
+};
