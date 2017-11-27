@@ -219,4 +219,5 @@ function translateString(original){
 		}
 	}
 	if (res!="") res = res.slice(0,-1);
+	return res;
 }
