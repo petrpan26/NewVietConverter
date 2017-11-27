@@ -2,6 +2,9 @@
 <html lang = "vi">
 <head>
 	<title>New Viet Converter</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="vietdict.js"></script>
+	<script src="translate.js"></script>
 	<script src="logic.js"></script>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 	<style>
@@ -38,7 +41,6 @@
 	</form> 
 
 	<br><br>
-
 	<b style="font-size: 18px">Văn bản đượk zịc</b><br>
 
 	<text id="translated">
@@ -49,6 +51,7 @@
 	</button><br><br>
 	<i>Created by Hoang Phan</i>
 	<br>
-	<i>Incoming features: Translate only detected Vietnamese word for more correct translation!</i>
+	<i>Incoming features: Translate only detected Vietnamese word for more correct translation!</i><br>
+	<iframe src="wordlist.html" hidden id="ifrm"></iframe>
 </body>
 </html>
