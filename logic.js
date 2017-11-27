@@ -182,10 +182,50 @@ function translate_single_word(s){
 	return translated;
 }
 
+function remove_dialect(str) {
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+    str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+    str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+    str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+    str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+    str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+    str = str.replace(/Đ/g, "D");
+    return str;
+}
+
+function check_word(s){
+	s = remove_dialect(s);
+	s = s.toLowerCase();
+	for (var i=0;i<s.length;i++){
+		if (s[i]<'a' || s[i]>'z') return false;
+	}
+	return true;
+}
+
 window.onload = function(){
 	document.getElementById("myBtn").addEventListener("click", function(){
 	var displayBox = document.getElementById("translated");
 	var original = document.getElementById("original").value;
-	displayBox.innerHTML = "<i>"+translate_single_word(original)+"</i>";
+	var originalTokenizer = original.split(" ");
+	var res = "";
+	for (var i = 0;i<originalTokenizer.length;i++){
+		if (check_word(originalTokenizer[i])){
+			res += translate_single_word(originalTokenizer[i]);
+			res += " ";
+		}
+		else{
+			res += originalTokenizer[i];
+			res += " ";
+		}
+	}
+	res = res.slice(0,-1);
+	displayBox.innerHTML = "<i>"+res+"</i>";
 });
 }
