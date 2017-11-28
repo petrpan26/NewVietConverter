@@ -200,6 +200,7 @@ function removeDialect(str) {
 }
 
 function checkWord(s){
+	if (s.length<3) return false;
 	s = removeDialect(s);
 	s = s.toLowerCase();
 	return (s in vietDict);
