@@ -200,14 +200,16 @@ function removeDialect(str) {
 }
 
 function checkWord(s){
-	if (s.length<3) return false;
+	if (s.length<3){
+		return false;
+	}
 	s = removeDialect(s);
 	s = s.toLowerCase();
 	return (s in vietDict);
 }
 
 function translateString(original){
-	var originalTokenizer = .split('\n').join(';').split(' ').join(';').split(';');
+	var originalTokenizer = original.split('\n').join(';').split(' ').join(';').split(';');
 	var res = "";
 	for (var i = 0;i<originalTokenizer.length;i++){
 		if (checkWord(originalTokenizer[i])){
