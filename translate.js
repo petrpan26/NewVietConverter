@@ -206,7 +206,7 @@ function checkWord(s){
 }
 
 function translateString(original){
-	var originalTokenizer = original.split(" ");
+	var originalTokenizer = .split('\n').join(';').split(' ').join(';').split(';');
 	var res = "";
 	for (var i = 0;i<originalTokenizer.length;i++){
 		if (checkWord(originalTokenizer[i])){
