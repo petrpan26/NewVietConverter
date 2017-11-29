@@ -3,14 +3,15 @@ function getMap(){
 	var ifrm = document.getElementById("ifrm");
 	var frameDoc = ifrm.contentDocument || iframe.contentWindow.document;
 	var data = frameDoc.getElementsByTagName('text')[0].innerHTML;
-    var wordList = data.split('\n').join(';').split(' ').join(';').split(';');
+    var wordList = JSON.parse(data);
     console.log(wordList);
-    for (var i=1;i<wordList.length;i++){
-    	input = wordList[i];
-		input = removeDialect(input);
-		input = input.split(' ').join('');
-		input = input.toLowerCase();
-		vietDict[input] = 1;
+    for (i in wordList){
+    	for (j in wordList[i].split(' ')){
+    		input = wordList[i].split(' ')[j];
+    		input = removeDialect(input);
+    		input = input.toLowerCase();
+    		vietDict[input] = 1;
+    	}
     }
 	return vietDict;
-}
+}Đụ
