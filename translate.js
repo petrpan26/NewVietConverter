@@ -167,11 +167,11 @@ function translateSingleWord(s){
 			case 'Đ':
 				translated+='D';
 				break;
-			case 'x':
-				translated+='s';
+			case 's':
+				translated+='x';
 				break;
-			case 'X':
-				translated+='S';
+			case 'S':
+				translated+='X';
 				break;
 			default:
 				translated+=original[i];
